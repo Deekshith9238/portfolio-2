@@ -256,7 +256,7 @@ const App = () => {
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
+          viewport={{ once: false, amount: 0.1 }}
           className="max-w-7xl mx-auto grid md:grid-cols-2 gap-20 items-center"
         >
           <motion.div variants={fadeUp} className="space-y-10">
@@ -288,7 +288,7 @@ const App = () => {
         <motion.div 
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: false, amount: 0.2 }}
           transition={{ duration: 1 }}
           className="mb-24 flex items-center justify-between"
         >
@@ -306,7 +306,7 @@ const App = () => {
                 variants={fadeUp}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, amount: 0.1 }}
+                viewport={{ once: false, amount: 0.1 }}
                 className={`relative flex flex-col md:flex-row items-start ${idx % 2 === 0 ? 'md:flex-row-reverse' : ''}`}
               >
                 <div className={`hidden md:block w-1/2 ${idx % 2 === 0 ? 'pl-20' : 'pr-20 text-right'}`}>
@@ -335,7 +335,7 @@ const App = () => {
           <motion.div 
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 1 }}
             className="mb-16 text-center"
           >
@@ -347,7 +347,7 @@ const App = () => {
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
+            viewport={{ once: false, amount: 0.1 }}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[1px] bg-zinc-900"
           >
             {skills.map((skill, idx) => (
@@ -373,7 +373,7 @@ const App = () => {
         <motion.div 
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           transition={{ duration: 1 }}
           className="mb-24 flex flex-col md:flex-row justify-between items-start md:items-end gap-6 border-b border-zinc-900 pb-12"
         >
@@ -387,7 +387,7 @@ const App = () => {
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
+          viewport={{ once: false, amount: 0.1 }}
           className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10"
         >
           {projects.map((project, idx) => (
@@ -434,7 +434,7 @@ const App = () => {
         <motion.div
            initial={{ opacity: 0, y: 40 }}
            whileInView={{ opacity: 1, y: 0 }}
-           viewport={{ once: true }}
+           viewport={{ once: false }}
            transition={{ duration: 1 }}
            className="max-w-3xl flex flex-col items-center"
         >
