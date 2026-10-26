@@ -12,34 +12,37 @@
   --color-ink-2: var(--ink-2);
   --color-ink-3: var(--ink-3);
   --color-hairline: var(--hairline);
-  --color-glow: var(--glow);
+  --color-accent: var(--accent);
+  --color-on-accent: var(--on-accent);
 }
 
-/* Dark is the default; index.html sets data-theme from the saved choice or the system setting before first paint. */
+/* Light is the default; index.html switches to dark before first paint if the visitor chose it. */
 :root {
+  --canvas: #f5f5f7;
+  --tile: #ffffff;
+  --ink: #1d1d1f;
+  --ink-2: #424245;
+  --ink-3: #6e6e73;
+  --hairline: rgb(0 0 0 / 0.08);
+  --accent: #5b4fd6;
+  --on-accent: #ffffff;
+  --nav: rgb(245 245 247 / 0.72);
+  --nav-edge: rgb(0 0 0 / 0.08);
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
   --canvas: #000000;
   --tile: #161617;
   --ink: #f5f5f7;
   --ink-2: #a1a1a6;
   --ink-3: #86868b;
   --hairline: rgb(255 255 255 / 0.1);
-  --glow: #a59bff;
+  --accent: #a59bff;
+  --on-accent: #0b0820;
   --nav: rgb(0 0 0 / 0.72);
   --nav-edge: rgb(255 255 255 / 0.06);
   color-scheme: dark;
-}
-
-:root[data-theme="light"] {
-  --canvas: #f5f5f7;
-  --tile: #ffffff;
-  --ink: #1d1d1f;
-  --ink-2: #424245;
-  --ink-3: #6e6e73;
-  --hairline: rgb(0 0 0 / 0.1);
-  --glow: #5b4fd6;
-  --nav: rgb(245 245 247 / 0.72);
-  --nav-edge: rgb(0 0 0 / 0.08);
-  color-scheme: light;
 }
 
 /* Theme switches cross-fade instead of flashing (class added briefly by the toggle). */
@@ -68,12 +71,12 @@ html.theming * {
   }
 
   ::selection {
-    background: color-mix(in srgb, var(--glow) 35%, transparent);
+    background: color-mix(in srgb, var(--accent) 35%, transparent);
     color: var(--ink);
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-glow);
+    outline: 2px solid var(--color-accent);
     outline-offset: 3px;
     border-radius: 6px;
   }

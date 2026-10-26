@@ -11,13 +11,18 @@ export const projects = [
   {
     title: 'Local MCP Router',
     summary:
-      'Coding assistants send every prompt to the cloud, even trivial ones. This router keeps simple tasks on a local Ollama model and sends hard reasoning to cloud models.',
-    detail:
-      'Built on MCP with an OpenAI-compatible proxy. It adds local RAG (index, search, rerank, summarize) and compresses oversized IDE prompts before forwarding them, cutting cloud token use without hurting answers.',
+      'Keeps simple coding prompts on a local Ollama model and sends hard reasoning to the cloud. Adds local RAG and compresses oversized IDE prompts, cutting cloud token use.',
     tech: ['Python', 'FastMCP', 'ChromaDB', 'Ollama'],
     link: 'https://github.com/Deekshith9238/local-ide-mcp',
     image: '/projects/mcp_router.webp',
-    layout: 'wide',
+  },
+  {
+    title: 'FindMyHelper',
+    summary:
+      'Connects people with local providers for home repairs, cleaning and maintenance, with real-time booking.',
+    tech: ['React', 'Express', 'PostgreSQL'],
+    link: 'https://github.com/Deekshith9238/fmh-2',
+    image: '/projects/find_my_helper.webp',
   },
   {
     title: 'Vehicle Damage Detection',
@@ -25,27 +30,14 @@ export const projects = [
       'A CNN model that classifies vehicle damage from photos at 95% accuracy, built to automate the first pass of insurance assessments.',
     tech: ['Python', 'TensorFlow', 'OpenCV'],
     image: '/projects/vehicle_damage.webp',
-    layout: 'half',
   },
   {
     title: 'Anomaly User Detection',
     summary:
-      'Compared ANN, DNN, KNN and Random Forest for real-time anomaly detection on IoT networks. The ANN led under single and dual attacker scenarios and is small enough for microcontrollers.',
+      'Compared ANN, DNN, KNN and Random Forest for real-time anomaly detection on IoT networks. The ANN led and is small enough for microcontrollers.',
     tech: ['Python', 'TensorFlow', 'Pandas'],
     note: 'Published May 2025',
     image: '/projects/anomaly_user.webp',
-    layout: 'half',
-  },
-  {
-    title: 'FindMyHelper',
-    summary:
-      'Connects people with local providers for home repairs, cleaning and maintenance, with real-time booking.',
-    detail: 'Full-stack JavaScript: a React client on an Express API backed by PostgreSQL.',
-    tech: ['React', 'Express', 'PostgreSQL'],
-    link: 'https://github.com/Deekshith9238/fmh-2',
-    image: '/projects/find_my_helper.webp',
-    layout: 'wide',
-    flip: true,
   },
 ];
 

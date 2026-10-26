@@ -27,7 +27,7 @@ const navLinks = [
 ];
 
 const useTheme = () => {
-  const [theme, setTheme] = useState(() => document.documentElement.dataset.theme || 'dark');
+  const [theme, setTheme] = useState(() => document.documentElement.dataset.theme || 'light');
 
   const toggle = () => {
     const next = theme === 'dark' ? 'light' : 'dark';
@@ -131,7 +131,7 @@ const Nav = () => {
             <a
               href={profile.resume}
               download="Deekshith_HU_Resume.pdf"
-              className="press rounded-full bg-ink px-3.5 py-1 text-[0.8125rem] font-medium tracking-[-0.005em] text-canvas hover:opacity-85"
+              className="press rounded-full bg-accent px-3.5 py-1 text-[0.8125rem] font-medium tracking-[-0.005em] text-on-accent hover:opacity-85"
             >
               Résumé
             </a>
@@ -242,13 +242,13 @@ const Hero = () => {
           <motion.div variants={rise} className="mt-9 flex flex-wrap items-center justify-center gap-3">
             <a
               href={`mailto:${profile.email}`}
-              className="press rounded-full bg-ink px-6 py-3 text-[1.0625rem] font-medium text-canvas hover:opacity-85"
+              className="press rounded-full bg-accent px-6 py-3 text-[1.0625rem] font-medium text-on-accent hover:opacity-85"
             >
               Email me
             </a>
             <a
               href="#work"
-              className="press rounded-full px-6 py-3 text-[1.0625rem] font-medium text-ink ring-1 ring-inset ring-ink/25 hover:bg-ink/10"
+              className="press rounded-full px-6 py-3 text-[1.0625rem] font-medium text-ink ring-1 ring-inset ring-accent/50 hover:bg-accent/10"
             >
               See my work
             </a>
@@ -285,7 +285,6 @@ const SectionHeading = ({ children, id }) => (
 const ProjectTile = ({ project }) => {
   const reduceMotion = useReducedMotion();
   const ref = useRef(null);
-  const wide = project.layout === 'wide';
   const Tag = project.link ? motion.a : motion.article;
   const linkProps = project.link ? { href: project.link, target: '_blank', rel: 'noopener noreferrer' } : {};
 
@@ -302,15 +301,11 @@ const ProjectTile = ({ project }) => {
       ref={ref}
       {...linkProps}
       style={reduceMotion ? undefined : { scale: tileScale, opacity: tileOpacity, y: tileY }}
-      className={`group flex flex-col overflow-hidden rounded-[28px] bg-tile ${
-        wide ? 'md:col-span-2 md:grid md:grid-cols-2' : ''
+      className={`group flex flex-col overflow-hidden rounded-[22px] bg-tile ring-1 ring-hairline transition-shadow duration-300 ${
+        project.link ? 'hover:ring-2 hover:ring-accent' : ''
       }`}
     >
-      <div
-        className={`overflow-hidden bg-black ${
-          wide ? `aspect-square ${project.flip ? 'md:order-first' : 'md:order-last'}` : 'aspect-[16/9]'
-        }`}
-      >
+      <div className="aspect-[16/10] overflow-hidden bg-black">
         <motion.img
           src={project.image}
           alt=""
@@ -319,15 +314,14 @@ const ProjectTile = ({ project }) => {
           className="h-full w-full object-cover"
         />
       </div>
-      <div className={`flex flex-1 flex-col p-8 ${wide ? 'md:justify-center md:p-12' : ''}`}>
-        <h3 className="display text-[1.75rem] text-ink md:text-[2rem]">{project.title}</h3>
-        <p className="mt-4 max-w-[52ch] text-ink-2">{project.summary}</p>
-        {project.detail && <p className="mt-3 max-w-[52ch] text-ink-2">{project.detail}</p>}
-        <p className="mt-6 text-[0.875rem] text-ink-3">{project.tech.join(', ')}</p>
+      <div className="flex flex-1 flex-col p-6 md:p-7">
+        <h3 className="display text-[1.5rem] text-ink">{project.title}</h3>
+        <p className="mt-3 text-[0.9375rem] leading-[1.5] text-ink-2">{project.summary}</p>
+        <p className="mt-4 text-[0.8125rem] tracking-[-0.005em] text-ink-3">{project.tech.join(', ')}</p>
         {(project.link || project.note) && (
-          <p className={`pt-6 text-[0.9375rem] ${wide ? '' : 'mt-auto'}`}>
+          <p className="mt-auto pt-5 text-[0.9375rem]">
             {project.link ? (
-              <span className="text-glow group-hover:underline">View on GitHub</span>
+              <span className="text-accent group-hover:underline">View on GitHub</span>
             ) : (
               <span className="text-ink-3">{project.note}</span>
             )}
@@ -341,7 +335,7 @@ const ProjectTile = ({ project }) => {
 const Work = () => (
   <section aria-labelledby="work" className="mx-auto max-w-[1080px] px-5 pt-32 md:pt-44">
     <SectionHeading id="work">Selected work</SectionHeading>
-    <div className="mt-12 grid gap-5 md:grid-cols-2">
+    <div className="mt-12 grid gap-4 sm:grid-cols-2 md:gap-5">
       {projects.map((p) => (
         <ProjectTile key={p.title} project={p} />
       ))}
@@ -359,7 +353,7 @@ const Experience = () => (
           key={`${job.company}-${job.role}`}
           className="grid gap-2 border-t border-hairline py-8 md:grid-cols-[200px_1fr] md:gap-10"
         >
-          <p className="text-[0.9375rem] text-ink-3 md:pt-1">{job.period}</p>
+          <p className="text-[0.9375rem] font-medium text-accent md:pt-1">{job.period}</p>
           <div>
             <h3 className="text-[1.3125rem] font-semibold tracking-[-0.02em] text-ink">{job.role}</h3>
             <p className="text-ink-2">{job.company}</p>
@@ -425,7 +419,7 @@ const About = () => (
             <li key={r.title} className="border-t border-hairline py-4">
               <p className="flex justify-between gap-4 text-ink">
                 <span>{r.title}</span>
-                {r.when && <span className="text-ink-3">{r.when}</span>}
+                {r.when && <span className="text-accent">{r.when}</span>}
               </p>
               <p className="mt-1 text-[0.9375rem] text-ink-2">{r.by}</p>
             </li>
@@ -449,7 +443,7 @@ const About = () => (
           {certifications.map((c) => (
             <li key={c.title} className="flex justify-between gap-4 border-t border-hairline py-4 text-ink">
               <span>{c.title}</span>
-              <span className="text-ink-3">{c.when}</span>
+              <span className="text-accent">{c.when}</span>
             </li>
           ))}
         </ul>
@@ -482,23 +476,23 @@ const Contact = () => {
         <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
           <a
             href={`mailto:${profile.email}`}
-            className="press rounded-full bg-ink px-6 py-3 text-[1.0625rem] font-medium text-canvas hover:opacity-85"
+            className="press rounded-full bg-accent px-6 py-3 text-[1.0625rem] font-medium text-on-accent hover:opacity-85"
           >
             {profile.email}
           </a>
           <a
             href={profile.resume}
             download="Deekshith_HU_Resume.pdf"
-            className="press rounded-full px-6 py-3 text-[1.0625rem] font-medium text-ink ring-1 ring-inset ring-ink/25 hover:bg-ink/10"
+            className="press rounded-full px-6 py-3 text-[1.0625rem] font-medium text-ink ring-1 ring-inset ring-accent/50 hover:bg-accent/10"
           >
             Download résumé
           </a>
         </div>
         <p className="mt-8 flex justify-center gap-6">
-          <a href={profile.github} target="_blank" rel="noopener noreferrer" className="text-glow hover:underline">
+          <a href={profile.github} target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">
             GitHub
           </a>
-          <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" className="text-glow hover:underline">
+          <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">
             LinkedIn
           </a>
         </p>
@@ -531,7 +525,7 @@ const App = () => (
     <MotionConfig reducedMotion="user">
       <a
         href="#work"
-        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-14 focus:z-[60] focus:rounded-full focus:bg-ink focus:px-4 focus:py-2 focus:text-canvas"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-14 focus:z-[60] focus:rounded-full focus:bg-accent focus:px-4 focus:py-2 focus:text-on-accent"
       >
         Skip to work
       </a>
