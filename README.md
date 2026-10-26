@@ -2,7 +2,7 @@
 
 Personal site for Deekshith H U, a software engineer in Bengaluru working on AI agents, RAG pipelines and React front ends. Live at [deekshithhu.in](https://deekshithhu.in).
 
-Built with React 19, Vite, Tailwind CSS v4 and Framer Motion.
+Built with React 19, Vite, Tailwind CSS v4, Framer Motion and [Lenis](https://github.com/darkroomengineering/lenis) for smooth scrolling. Light and dark themes follow the system setting until the visitor picks one with the toggle in the nav.
 
 ## Run locally
 
