@@ -1,16 +1,18 @@
-# React + Vite
+# Deekshith H U — portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal site for Deekshith H U, a software engineer in Bengaluru working on AI agents, RAG pipelines and React front ends. Live at [deekshithhu.in](https://deekshithhu.in).
 
-Currently, two official plugins are available:
+Built with React 19, Vite, Tailwind CSS v4, Framer Motion and [Lenis](https://github.com/darkroomengineering/lenis) for smooth scrolling. The site opens in the light theme; visitors can switch to dark with the toggle in the nav, and the choice is remembered.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Run locally
 
-## React Compiler
+```sh
+npm install
+npm run dev      # http://localhost:5173
+npm run build    # production build in dist/
+npm run lint
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Editing content
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+All copy (projects, experience, skills, recognition, links) lives in `src/data.js`. Project images go in `public/projects/` as WebP, about 1400px wide.
