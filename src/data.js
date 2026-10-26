@@ -84,6 +84,7 @@ export const skills = [
 ];
 
 export const recognition = [
+  { title: 'Most Promising Rookie Award', by: 'Pratishthan Ventures, for energy and dedication to the team' },
   { title: 'Best Outgoing Student, Gold Medal', by: 'Malnad College of Engineering', when: '2025' },
   { title: 'IndiaAI Fellowship', by: 'Awarded to 10 BTech students nationwide', when: '2024' },
   { title: 'Winner, Pratishthan Hackathon 2.0', by: 'Multi-agent system that maps SQL failures to the source code behind them' },
@@ -92,6 +93,7 @@ export const recognition = [
 ];
 
 export const certifications = [
+  { title: 'Google Cloud Certified: Generative AI Leader' },
   { title: 'Google Cloud Technical Series: AI agents', when: '2026' },
   { title: 'Google UX Design Specialization', when: '2024' },
   { title: 'Meta Introduction to Front-End Development', when: '2023' },

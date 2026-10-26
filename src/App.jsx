@@ -443,7 +443,7 @@ const About = () => (
           {certifications.map((c) => (
             <li key={c.title} className="flex justify-between gap-4 border-t border-hairline py-4 text-ink">
               <span>{c.title}</span>
-              <span className="text-accent">{c.when}</span>
+              {c.when && <span className="text-accent">{c.when}</span>}
             </li>
           ))}
         </ul>
